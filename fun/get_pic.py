@@ -38,16 +38,16 @@ def get_img():
 
     # 中文繪圖需要中文字體，請自己從windows font目錄抓
     # 微軟正黑體
-    font = os.path.dirname(__file__)+"/msjh.ttc"
+    font = os.path.dirname(__file__)+"/SNsanafonkaku.ttf"
     png_n = os.path.dirname(__file__)+"/okpng.png"
 
     # 想要文字雲出現的圖示
     mask = np.array(Image.open(png_n))
 
-
-    my_wordcloud = WordCloud(background_color="black", mask=mask, collocations=False, width=2400, height=2400, margin=2)
+    my_wordcloud = WordCloud(background_color="black", mask=mask, font_path=font,
+                             collocations=False, width=2400, height=2400, margin=2)
     my_wordcloud.generate_from_frequencies(Counter(terms))
-
+#font_path=font,
     # 產生圖片
     plt.figure(figsize=(20, 10), facecolor='k')
     plt.imshow(my_wordcloud, interpolation='bilinear')

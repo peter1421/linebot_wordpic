@@ -21,7 +21,6 @@ def get_root(url):
                 root = BeautifulSoup(response.text, "html.parser")
                 return root
             else:
-                print(response, "!=<Response [200]>")
                 continue
         except:
             print('FAIL', ip)
@@ -66,7 +65,6 @@ def all_floor(url):
             root = get_root(url)
             ans.extend(get_txt(root))
             print(p, "頁完成\n")
-            ss=p
         except:
             print("輸出", ans)
             save_txt(ans)
