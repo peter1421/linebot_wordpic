@@ -44,8 +44,7 @@ def get_img():
     # 想要文字雲出現的圖示
     mask = np.array(Image.open(png_n))
 
-    my_wordcloud = WordCloud(background_color="black", mask=mask, font_path=font,
-                             collocations=False, width=2400, height=2400, margin=2)
+    my_wordcloud = WordCloud(background_color="white", mask=mask, font_path=font,collocations=False, width=2400, height=2400, margin=2)
     my_wordcloud.generate_from_frequencies(Counter(terms))
 #font_path=font,
     # 產生圖片
