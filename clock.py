@@ -22,7 +22,7 @@ handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', second='*/10')
+@sched.scheduled_job('cron', second='*/100')
 def scheduled_job():
     ls = database.show_new()
     if(ls):
