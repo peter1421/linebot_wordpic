@@ -73,9 +73,9 @@ def all_floor(url):
             break
 
 
-url = "https://forum.gamer.com.tw/Co.php?bsn=60076&sn=74427703"
+# url = "https://forum.gamer.com.tw/Co.php?bsn=60076&sn=74427703"
 
-all_floor(url)
+# all_floor(url)
 
 
 # proxy_list = [
