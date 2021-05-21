@@ -1,20 +1,19 @@
 import os
 import psycopg2
-from datetime import datetime
 
 
 class database():
     def __init__(self, id_t,url):
-        #self.DATABASE_URL = os.environ['DATABASE_URL']
-        self.DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a dsfsfsfssf').read()[:-1]
+        self.DATABASE_URL = os.environ['DATABASE_URL']
+        #self.DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a dsfsfsfssf').read()[:-1]
         self.conn = psycopg2.connect(self.DATABASE_URL, sslmode='require')
         self.id = id_t
         self.url=url
     def creat_table(self):
         create_table_query = '''CREATE TABLE ID_table(
                 record_no serial PRIMARY KEY,
-                ID VARCHAR (50) NOT NULL,
-                url VARCHAR (50) NOT NULL
+                ID VARCHAR (500) NOT NULL,
+                url VARCHAR (500) NOT NULL
                 );'''
         self.close(create_table_query)
         print("列表已建立")
@@ -50,8 +49,8 @@ class database():
         ls = self.select()
         for x in ls:
             for y in x:
-                print(y,end="")
-            print("")
+                print(y,end=":")
+            print("\n")
     def check_re_id(self):
         ls = self.select()
         for x in ls:
@@ -59,8 +58,8 @@ class database():
                 return True
         return False
 
-# d = database("bb","fff")
-# #d.creat_table()
+#d = database("bb","fff")
+#d.creat_table()
 # d.add_table()
 # d.show_table()
 
