@@ -35,10 +35,10 @@ class database():
         print(count, "筆資料添加完成")
         cursor.close()
 
-    def del_line(self,num):
+    def del_line(self, num):
         cursor = self.conn.cursor()
         del_num = f"""DELETE from ID_table WHERE record_no = {str(num)}"""
-        print("!!!",del_num)
+        print("!!!", del_num)
         cursor.execute(del_num)
         self.conn.commit()
         print("資料刪除完成")
@@ -81,23 +81,24 @@ def save_url(id_t, url):
 
 
 def show_new():
-    d = database(id_t='dd', url='dd')
-    # d.add_table()
-    ls = d.select()
-    temp = ls[-1]
-    d.del_line(temp[0])
-    print(temp)
-    return temp
+    try:
+        d = database(id_t='dd', url='dd')
+        # d.add_table()
+        ls = d.select()
+        temp = ls[-1]
+        d.del_line(temp[0])
+        print(temp)
+        return temp
+    except:
+        return None
 
-
-#show_new()
+# show_new()
 
 # d = database("bb","fff")
 # d.add_table()
 
 # # d = database("bb", "fff")
 # d.show_table()
-
 
 
 # find_pic("U3710ef56fd850e8a225091b26a67daea")
