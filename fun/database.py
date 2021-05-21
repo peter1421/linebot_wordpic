@@ -122,11 +122,14 @@ def show_id():
 
 
 def save_id(id_t):
-    d = database(id_t, url=None, lis=None)
-    if(d.check_re_id() == False):
-        d.add_table()
-        d.show_table()
-        t = "id"+"儲存完成"
-    else:
-        t = "id:("+str(id_t)+")已存在"
-    return t
+    try:
+        d = database(id_t, url=None, lis=None)
+        if(d.check_re_id() == False):
+            d.add_table()
+            d.show_table()
+            t = "id"+"儲存完成"
+        else:
+            t = "id:("+str(id_t)+")已存在"
+        return t
+    except:
+        return None

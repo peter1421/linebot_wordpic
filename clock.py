@@ -25,9 +25,11 @@ sched = BlockingScheduler()
 @sched.scheduled_job('cron', second='*/10')
 def scheduled_job():
     ls = database.show_new()
-    try:
-        line_bot_api.push_message(ls[1], ImageSendMessage(original_content_url=ls[2], preview_image_url=ls[2]))
-    except:
-        print(ls,"失敗")
-
+    if(ls):
+        try:
+            line_bot_api.push_message(ls[1], ImageSendMessage(original_content_url=ls[2], preview_image_url=ls[2]))
+        except:
+            print(ls,"失敗")
+    else:
+        print("目前沒有資料")
 sched.start()
