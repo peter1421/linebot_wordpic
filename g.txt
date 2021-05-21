@@ -1,7 +1,7 @@
 git add .
 git config --global core.autocrlf input
 git add .
-git commit -am "圖片+資料庫"
+git commit -am "圖片+資料庫2"
 git push heroku master
 
 ok
