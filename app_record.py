@@ -44,7 +44,7 @@ def reply_text_message(event):
     if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
         reply = False
         if not reply:
-            reply = line_main.help(event)
+            reply = line_main.show_pic(event)
         if not reply:
             reply = line_main.forum_img(event)
         if not reply:

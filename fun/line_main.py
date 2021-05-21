@@ -34,14 +34,15 @@ def pretty_echo(event):
     return True
 
 
-def help(event):
-    if '##help' in event.message.text:
+def show_pic(event):
+    if 'show' in event.message.text:
         try:
             img_url = main.find_pic(event.source.user_id)
             message = ImageSendMessage(
                 original_content_url=img_url, preview_image_url=img_url
             )
             line_bot_api.reply_message(event.reply_token, message)
+            print("圖片完成!!!!!!!!")
             return True
         except:
             t = "查無圖片，請輸入網址後再查詢"
