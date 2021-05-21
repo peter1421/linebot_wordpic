@@ -71,7 +71,7 @@ class database():
 
 
 def save_url(id_t, url):
-    d = database(id_t, url, num=None)
+    d = database(id_t, url)
     d.add_table()
     d.show_table()
 #d = database("bb","fff")
