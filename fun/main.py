@@ -6,7 +6,7 @@ import pyimgur
 
 
 def glucose_graph(url):
-    f.all_floor(url)
+    #f.all_floor(url)
     g.get_img()
     CLIENT_ID = "cb4c8860e31c56a"
     PATH = "Wordcloud.png"
@@ -16,7 +16,7 @@ def glucose_graph(url):
     return uploaded_image.link
 
 
-# url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=6337317&last=1#down"
+# url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=6344509"
 # img_url = glucose_graph(url)
 # print(img_url)
 

@@ -45,7 +45,7 @@ def get_img():
     mask = np.array(Image.open(png_n))
 
 
-    my_wordcloud = WordCloud(background_color="black", mask=mask, font_path=font,collocations=False, width=2400, height=2400, margin=2)
+    my_wordcloud = WordCloud(background_color="black", mask=mask, collocations=False, width=2400, height=2400, margin=2)
     my_wordcloud.generate_from_frequencies(Counter(terms))
 
     # 產生圖片
@@ -60,7 +60,6 @@ def get_img():
     plt.savefig("Wordcloud.png")
 
 
-
-#url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=3131519"
-#forum_fun.all_floor(url)
+# url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=6344509"
+# forum_fun.all_floor(url)
 #get_img()
