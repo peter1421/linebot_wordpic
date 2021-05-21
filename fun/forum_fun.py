@@ -4,21 +4,39 @@ import os
 from fake_useragent import UserAgent
 import random
 import re
-
+import time
 
 def get_root(url):
+    for ip in op_ip:
+        try:
+            ua = UserAgent().chrome
+            #response = requests.get(url, headers={"user-agent": ua})
+            response = requests.get(
+                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=3)
+            print(response, ip)
+            if(response.ok):
+                print("ok")
+                op_ip.insert(0,ip)
+                root = BeautifulSoup(response.text, "html.parser")
+                time.sleep(random.uniform(1, 5))
+                return root
+            else:
+                continue
+        except:
+            print('FAIL', ip)
+    print("隨機ip\n\n")
     res = requests.get('https://free-proxy-list.net/')
     m = re.findall('\d+\.\d+\.\d+\.\d+:\d+', res.text)
-    re200 = "[200]"
     for ip in m:
         try:
             ua = UserAgent().chrome
-            response = requests.get(
-                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=5)
+            #response = requests.get(url, headers={"user-agent": ua})
+            response = requests.get(url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=5)
             print(response,ip)
             if(response.ok):
                 print("ok")
                 root = BeautifulSoup(response.text, "html.parser")
+                op_ip.append(ip)
                 return root
             else:
                 continue
@@ -71,8 +89,10 @@ def all_floor(url):
             break
 
 
-# url = "https://forum.gamer.com.tw/Co.php?bsn=60076&sn=74427703"
+op_ip = ['61.230.196.179:80', '60.245.127.16:8193', '114.32.84.229:8118','03.74.120.79:3128','203.74.120.79:3128','59.120.147.82:3128','27.105.130.93:8080','110.29.107.254:3128','59.120.147.82:3128']
 
+
+# url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=6345870"
 # all_floor(url)
 
 
@@ -93,3 +113,5 @@ def all_floor(url):
 #     'https': 'https://' + proxy
 # }, proxies=proxies
 # print(proxies)
+# a=get_root("https://forum.gamer.com.tw/C.php?bsn=60076&snA=5865232")
+# print(get_txt(a))
