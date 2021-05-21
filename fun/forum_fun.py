@@ -7,6 +7,7 @@ import re
 import time
 
 def get_root(url):
+
     for ip in op_ip:
         try:
             ua = UserAgent().chrome
@@ -31,7 +32,7 @@ def get_root(url):
         try:
             ua = UserAgent().chrome
             #response = requests.get(url, headers={"user-agent": ua})
-            response = requests.get(url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=5)
+            response = requests.get(url, headers={"user-agent": ua}, proxies={'http': ip,'https': ip}, timeout=5)
             print(response,ip)
             if(response.ok):
                 print("ok")
@@ -92,8 +93,8 @@ def all_floor(url):
 op_ip = ['61.230.196.179:80', '60.245.127.16:8193', '114.32.84.229:8118','03.74.120.79:3128','203.74.120.79:3128','59.120.147.82:3128','27.105.130.93:8080','110.29.107.254:3128','59.120.147.82:3128']
 
 
-# url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=6345870"
-# all_floor(url)
+url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=6345870"
+all_floor(url)
 
 
 # proxy_list = [
