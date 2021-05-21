@@ -15,23 +15,26 @@ line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
 
 
 def forum_img(event):
-    url = event.message.text
-    print(url)
-    img_url = main.glucose_graph(event.source.user_id, url)
-    print(img_url)
-    return True
+    if('forum.gamer.com.tw' in event.message.text):
+        t = "正在生成圖片，可能需要幾分鐘..."
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=t)
+        )
+        url = event.message.text
+        print(url)
+        img_url = main.glucose_graph(event.source.user_id, url)
+        print(img_url)
+        return True
+    else:
+        return False
 
 #https://i.imgur.com/puwbS9m.png
 
 
 
 
-def pretty_echo(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text)
-    )
-    return True
+
 
 
 def show_pic(event):
