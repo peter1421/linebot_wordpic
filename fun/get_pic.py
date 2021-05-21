@@ -10,9 +10,9 @@ def get_img():
 
     text_from_file_with_apath = open(file_name, "r", encoding="utf-8").read()
 
-    print(file_name,"讀取完成")
+    #print(file_name,"讀取完成")
 
-    print("內文:",text_from_file_with_apath)
+    #print("內文:",text_from_file_with_apath)
     # 設定字典
     dict_name = os.path.dirname(__file__)+"/dict.txt.big"
     userdict_name = os.path.dirname(__file__)+"/userdict.txt"
@@ -33,8 +33,8 @@ def get_img():
 
     sorted(Counter(terms).items(), key=lambda x: x[1], reverse=True)
 
-    print("??", Counter(terms), "??")
-    print("!!", terms, "!!")
+    #print("??", Counter(terms), "??")
+    #print("!!", terms, "!!")
 
     # 中文繪圖需要中文字體，請自己從windows font目錄抓
     # 微軟正黑體

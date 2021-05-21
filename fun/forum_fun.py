@@ -14,7 +14,7 @@ def get_root(url):
         try:
             ua = UserAgent().chrome
             response = requests.get(
-                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=5)
+                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=1)
             print(response,ip)
             if(response.ok):
                 print("ok")

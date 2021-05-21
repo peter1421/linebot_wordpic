@@ -12,7 +12,7 @@ def glucose_graph(url):
     PATH = "Wordcloud.png"
     im = pyimgur.Imgur(CLIENT_ID)
     uploaded_image = im.upload_image(PATH, title="Uploaded with PyImgur")
-    print("圖片網址:",uploaded_image.link)
+    #print("圖片網址:",uploaded_image.link)
     return uploaded_image.link
 
 
