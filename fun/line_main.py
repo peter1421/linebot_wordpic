@@ -17,7 +17,7 @@ line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
 def forum_img(event):
     url = event.message.text
     print(url)
-    img_url = str(event.source.user_id, main.glucose_graph(url),)
+    img_url = main.glucose_graph(event.source.user_id, url)
     print(img_url)
     return True
 
