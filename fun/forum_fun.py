@@ -13,7 +13,7 @@ def get_root(url):
         try:
             ua = UserAgent().chrome
             response = requests.get(
-                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=5)
+                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=1)
             print(response,ip)
             if(response!=200):
                 continue
@@ -83,6 +83,7 @@ def all_floor(url):
 #     '82.102.8.60:3128'
 #     '51.81.21.221:3128'
 #     '110.76.129.106:59570'
+#     '123.231.244.237:8080'
 # ]
 # proxy = random.choice(proxy_list)
 # proxies = {
