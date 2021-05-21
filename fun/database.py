@@ -71,12 +71,22 @@ def save_url(id_t, url):
     d.show_table()
 
 
+
+
+
+#find_pic("U3710ef56fd850e8a225091b26a67daea")
+
+
+
+
 #save_url("ss","s")
 #d = database("5", url=None , lis=None)
 #d.creat_table()
 #d.add_table()
 # d.show_table()
 #d.delete_table()
+
+## 用不到
 def show_id():
     d = database("0", url=None, lis=None)
     ls=d.select()

@@ -24,6 +24,8 @@ def forum_img(event):
 #https://i.imgur.com/puwbS9m.png
 
 
+
+
 def pretty_echo(event):
     line_bot_api.reply_message(
         event.reply_token,
@@ -35,16 +37,16 @@ def pretty_echo(event):
 def help(event):
     if '##help' in event.message.text:
         try:
-            img_url = "https://i.imgur.com/puwbS9m.png"
+            img_url = main.find_pic(event.source.user_id)
             message = ImageSendMessage(
                 original_content_url=img_url, preview_image_url=img_url
             )
             line_bot_api.reply_message(event.reply_token, message)
             return True
         except:
-            t = "查詢youbike站牌編號:'查詢'\n查詢youbike站牌剩餘車輛:'(站牌編號)'\n隨機觀看新聞:'新聞'\n搜尋蝦皮商城商品價格:'(商品網站)\n開啟提醒通知:##S'"
+            t = "查無圖片，請輸入網址後再查詢"
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=t)
             )
-            return False
+            return True
