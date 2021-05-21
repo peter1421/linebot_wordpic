@@ -15,16 +15,17 @@ line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
 
 
 def forum_img(event):
-    url = event.message.text
-    print(url)
-    img_url = main.glucose_graph(url)
-    print(img_url)
+    # url = event.message.text
+    # print(url)
+    # img_url = main.glucose_graph(url)
+    # print(img_url)
+    img_url ="https://i.imgur.com/puwbS9m.png"
     message = ImageSendMessage(
         original_content_url=img_url, preview_image_url=img_url
     )
     line_bot_api.reply_message(event.reply_token, message)
     return True
-
+#https://i.imgur.com/puwbS9m.png
 
 def pretty_echo(event):
     line_bot_api.reply_message(
