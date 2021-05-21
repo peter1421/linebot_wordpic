@@ -1,9 +1,9 @@
 git add .
 git config --global core.autocrlf input
 git add .
-git commit -am "ff2"
+git commit -am "ff3"
 git push heroku master
-
+ok
 5k4g4u/u.y7@gmail.com
 fil12385ki
 

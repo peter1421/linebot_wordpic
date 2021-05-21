@@ -9,16 +9,20 @@ import re
 def get_root(url):
     res = requests.get('https://free-proxy-list.net/')
     m = re.findall('\d+\.\d+\.\d+\.\d+:\d+', res.text)
+    re200 = "[200]"
     for ip in m:
         try:
             ua = UserAgent().chrome
             response = requests.get(
-                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=1)
+                url, headers={"user-agent": ua}, proxies={'http': ip, 'https': ip}, timeout=5)
             print(response,ip)
-            if(response!=200):
+            if(response.ok):
+                print("ok")
+                root = BeautifulSoup(response.text, "html.parser")
+                return root
+            else:
+                print(response, "!=<Response [200]>")
                 continue
-            root = BeautifulSoup(response.text, "html.parser")
-            return root
         except:
             print('FAIL', ip)
     return 0
@@ -69,9 +73,9 @@ def all_floor(url):
             break
 
 
-# url = "https://forum.gamer.com.tw/C.php?bsn=60076&snA=6263677&tnum=175&bPage=2"
+url = "https://forum.gamer.com.tw/Co.php?bsn=60076&sn=74427703"
 
-# all_floor(url)
+all_floor(url)
 
 
 # proxy_list = [
